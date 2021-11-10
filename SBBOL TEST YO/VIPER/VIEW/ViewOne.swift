@@ -10,7 +10,7 @@ import UIKit
 class ViewOne: UIViewController {
     
     // MARK: - Properties
-    var presenter: PresenterProtocol!
+    weak var presenter: PresenterProtocol?
     let configurator: ConfiguratorProtocol = Configurator()
     
     // MARK: - UI elements

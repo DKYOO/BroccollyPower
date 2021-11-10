@@ -9,7 +9,7 @@ import Foundation
 
 class Router: RouterProtocol {
     // MARK: - Properties
-    weak var viewController: ViewOne!
+    weak var viewController: ViewOne?
     
     // MARK: - Initializer
     init(viewController: ViewOne) {

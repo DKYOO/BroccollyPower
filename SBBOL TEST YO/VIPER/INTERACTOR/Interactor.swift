@@ -10,7 +10,7 @@ import Foundation
 class Interactor: InteractorProtocol {
     
     // MARK: - Properties
-    weak var presenter: PresenterProtocol!
+    weak var presenter: PresenterProtocol?
     
     // MARK: - Initializers
     init(presenter: PresenterProtocol) {

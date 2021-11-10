@@ -10,9 +10,9 @@ import Foundation
 class Presenter: PresenterProtocol {
     
     // MARK: - Properties
-    weak var view: ViewProtocol!
-    var interactor: InteractorProtocol!
-    var router: RouterProtocol!
+    weak var view: ViewProtocol?
+    weak var interactor: InteractorProtocol?
+    weak var router: RouterProtocol?
     
     // MARK: - Initializer
     init(view: ViewProtocol) {
@@ -21,8 +21,8 @@ class Presenter: PresenterProtocol {
     
     // MARK: - Methods
     func configureView() {
-        view.setupView()
-        view.addUIElements()
-        view.buildConstraints()
+        view?.setupView()
+        view?.addUIElements()
+        view?.buildConstraints()
     }
 }
