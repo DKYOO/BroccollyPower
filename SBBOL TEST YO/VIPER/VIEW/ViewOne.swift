@@ -11,7 +11,7 @@ class ViewOne: UIViewController {
     
     // MARK: - Properties
     var presenter: PresenterProtocol!
-    let configurator: CartConfiguratorProtocol = CartConfigurator()
+    let configurator: ConfiguratorProtocol = Configurator()
     
     // MARK: - UI elements
     

@@ -8,6 +8,6 @@
 import Foundation
 
 
-protocol CartInteractorProtocol: class {
+protocol InteractorProtocol: class {
     
 }
