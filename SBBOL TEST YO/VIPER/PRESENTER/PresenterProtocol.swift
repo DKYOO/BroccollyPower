@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol PresenterProtocol: class {
-    weak var router: RouterProtocol? { get set }
+    var router: RouterProtocol? { get set }
     
     func configureView()
 }
