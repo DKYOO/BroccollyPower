@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewOne: UIViewController {
     
     // MARK: - Properties
-    weak var presenter: PresenterProtocol?
+    var presenter: PresenterProtocol?
     
     // MARK: - UI elements
     
@@ -21,6 +22,24 @@ class ViewOne: UIViewController {
         label.text = "Test App"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    lazy var imageOne: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "even")
+        image.isHidden = true
+        return image
+    }()
+    
+    lazy var imageTwo: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "odd")
+        image.isHidden = true
+        return image
     }()
     
     lazy var textOne: UITextField = {
@@ -59,48 +78,28 @@ class ViewOne: UIViewController {
         addUIElements()
         buildConstraints()
         self.hideKeyboardWhenTappedAround()
-//        self.hideKeyboardWhenReturnTapped(textOne)
+        textOne.delegate = self
         
     }
     
     @objc func pushing() {
         presenter?.userDidEndTexting(text: textOne.text)
     }
-    
-//    private func addKeyboardObserver() {
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(keyboardWillShow),
-//                                               name: UIResponder.keyboardWillShowNotification,
-//                                               object: nil)
-//        NotificationCenter.default.addObserver(self,
-//                                               selector: #selector(keyboardWillHide),
-//                                               name: UIResponder.keyboardWillHideNotification,
-//                                               object: nil)
-//    }
-//
-//    private func removeKeyboardObserver() {
-//        NotificationCenter.default.removeObserver(self,
-//                                                  name: UIResponder.keyboardWillShowNotification,
-//                                                  object: nil)
-//
-//        NotificationCenter.default.removeObserver(self,
-//                                                  name: UIResponder.keyboardWillHideNotification,
-//                                                  object: nil)
-//    }
-    
 }
 
 extension ViewOne: ViewProtocol {
     func setupView() {
         view.backgroundColor = .lightGray
-        view.layer.cornerRadius = 29.3
-        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+//        view.layer.cornerRadius = 29.3
+//        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]  For Views with corners, not full screen
     }
     
     func addUIElements() {
         
         view.addSubview(titleLabel)
         view.addSubview(textOne)
+        view.addSubview(imageOne)
+        view.addSubview(imageTwo)
         view.addSubview(buttonOne)
         
     }
@@ -130,14 +129,24 @@ extension ViewOne: ViewProtocol {
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             
-            textOne.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 250),
+            imageOne.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+            imageOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            imageOne.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25), //or This Better ?
+            imageOne.heightAnchor.constraint(equalToConstant: 250),
+            
+            imageTwo.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50),
+            imageTwo.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            imageTwo.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25), //or This Better ?
+            imageTwo.heightAnchor.constraint(equalToConstant: 250),
+            
+            textOne.topAnchor.constraint(equalTo: imageOne.bottomAnchor, constant: 50),
             textOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
             textOne.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25), //or This Better ?
             textOne.heightAnchor.constraint(equalToConstant: 100),
             
-            buttonOne.topAnchor.constraint(equalTo: textOne.bottomAnchor, constant: 150),
-            buttonOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-            buttonOne.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25),  // Right ?
+            buttonOne.topAnchor.constraint(equalTo: textOne.bottomAnchor, constant: 50),
+            buttonOne.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            buttonOne.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15),  // Right ?
             buttonOne.heightAnchor.constraint(equalToConstant: 50)
             
             
@@ -145,7 +154,7 @@ extension ViewOne: ViewProtocol {
         
     }
 }
- //MARK: - KeyboardTricks
+ //MARK: - KeyboardTricks Motherfuckers 😎
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
@@ -157,4 +166,11 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+extension ViewOne: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      return textField.resignFirstResponder()
+     }
+
 }

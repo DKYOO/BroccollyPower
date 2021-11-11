@@ -6,13 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 class Router: RouterProtocol {
     // MARK: - Properties
-    weak var viewController: ViewOne?
+    weak var viewController: UIViewController?
     
     // MARK: - Initializer
-    init(viewController: ViewOne) {
+    init(viewController: UIViewController) {
         self.viewController = viewController
+    }
+    
+    func routeToKart(model: Model) {
+//        let kartView = AssembeKart.createModule()
+//        view?.present(kartView)
     }
 }

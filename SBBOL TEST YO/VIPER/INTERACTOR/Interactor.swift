@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Interactor: InteractorProtocol {
     
@@ -19,6 +20,11 @@ class Interactor: InteractorProtocol {
     
     func checkTextField(text: String?) {
         
+        var result: Double
+        
+        result = Double(text!.count / 2)
+        
+        print (result)
         text?.count ?? 0 % 2 == 0 ? print("green") : print ("red")
     }
 }

@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import UIKit
+
+struct Model {
+    
+}
 
 class Presenter: PresenterProtocol {
-
-    
-    
     
     // MARK: - Properties
     weak var view: ViewProtocol?
     var interactor: InteractorProtocol?
     var router: RouterProtocol?
-    
+    var models: [Model]?
     // MARK: - Initializer
     init(view: ViewProtocol) {
         self.view = view
@@ -24,10 +26,13 @@ class Presenter: PresenterProtocol {
     
     // MARK: - Methods
     func userDidEndTexting(text: String?) {
-        
-        interactor?.checkTextField(text: "hello")
+        interactor?.checkTextField(text: text)
     }
     
     func configureView() {
+    }
+    
+    func buttonDidTapped(i: Int) {
+//        router?.routeToKart(model: models[i])
     }
 }

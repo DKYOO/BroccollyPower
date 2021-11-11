@@ -72,6 +72,7 @@
 		329DE57A273BB63800D4244F /* SBBOL TEST YO */ = {
 			isa = PBXGroup;
 			children = (
+				32E75584273D77AB00AF6853 /* Kart */,
 				329DE57B273BB63800D4244F /* AppDelegate.swift */,
 				329DE57D273BB63800D4244F /* SceneDelegate.swift */,
 				329DE58F273BC06A00D4244F /* VIPER */,
@@ -85,6 +86,7 @@
 		329DE58F273BC06A00D4244F /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
+				32E75583273D775D00AF6853 /* Contract */,
 				329DE590273BC07500D4244F /* VIEW */,
 				329DE591273BC09000D4244F /* INTERACTOR */,
 				329DE592273BC0AD00D4244F /* PRESENTER */,
@@ -153,6 +155,20 @@
 				329DE5A9273BC6F600D4244F /* ConfiguratorProtocol.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		32E75583273D775D00AF6853 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		32E75584273D77AB00AF6853 /* Kart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Kart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
