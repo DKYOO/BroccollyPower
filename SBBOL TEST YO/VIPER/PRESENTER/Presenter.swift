@@ -8,11 +8,14 @@
 import Foundation
 
 class Presenter: PresenterProtocol {
+
+    
+    
     
     // MARK: - Properties
     weak var view: ViewProtocol?
-    weak var interactor: InteractorProtocol?
-    weak var router: RouterProtocol?
+    var interactor: InteractorProtocol?
+    var router: RouterProtocol?
     
     // MARK: - Initializer
     init(view: ViewProtocol) {
@@ -20,9 +23,11 @@ class Presenter: PresenterProtocol {
     }
     
     // MARK: - Methods
+    func userDidEndTexting(text: String?) {
+        
+        interactor?.checkTextField(text: "hello")
+    }
+    
     func configureView() {
-        view?.setupView()
-        view?.addUIElements()
-        view?.buildConstraints()
     }
 }

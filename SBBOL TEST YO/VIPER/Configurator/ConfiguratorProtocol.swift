@@ -8,6 +8,7 @@
 import Foundation
 
 
-protocol ConfiguratorProtocol: class {
+protocol ConfiguratorProtocol: AnyObject {
+    
     func configure(with viewController: ViewOne)
 }

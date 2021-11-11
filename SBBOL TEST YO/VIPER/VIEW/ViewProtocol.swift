@@ -7,8 +7,6 @@
 
 import Foundation
 
-protocol ViewProtocol: class {
-    func setupView()
-    func addUIElements()
-    func buildConstraints()
+protocol ViewProtocol: AnyObject {
+ 
 }

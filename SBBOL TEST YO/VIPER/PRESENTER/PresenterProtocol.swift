@@ -8,8 +8,10 @@
 import Foundation
 
 
-protocol PresenterProtocol: class {
+protocol PresenterProtocol: AnyObject {
+    
     var router: RouterProtocol? { get set }
     
     func configureView()
+    func userDidEndTexting(text: String?)
 }

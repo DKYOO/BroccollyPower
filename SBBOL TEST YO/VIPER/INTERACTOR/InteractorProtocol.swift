@@ -8,6 +8,8 @@
 import Foundation
 
 
-protocol InteractorProtocol: class {
+protocol InteractorProtocol: AnyObject {
+    
+    func checkTextField(text: String?) 
     
 }

@@ -16,4 +16,9 @@ class Interactor: InteractorProtocol {
     init(presenter: PresenterProtocol) {
         self.presenter = presenter
     }
+    
+    func checkTextField(text: String?) {
+        
+        text?.count ?? 0 % 2 == 0 ? print("green") : print ("red")
+    }
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol RouterProtocol: class {
+protocol RouterProtocol: AnyObject {
     
 }
