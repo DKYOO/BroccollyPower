@@ -11,20 +11,23 @@ import UIKit
 class Interactor: InteractorProtocol {
     
     // MARK: - Properties
-    weak var presenter: PresenterProtocol?
+    weak var presenter: PresenterOutput?
     
     // MARK: - Initializers
-    init(presenter: PresenterProtocol) {
+    init(presenter: PresenterOutput) {
         self.presenter = presenter
     }
     
     func checkTextField(text: String?) {
+        guard let text = text else { return }
         
-        var result: Double
+        text.count % 2 == 0 ? print("green") : print ("red")
         
-        result = Double(text!.count / 2)
-        
-        print (result)
-        text?.count ?? 0 % 2 == 0 ? print("green") : print ("red")
+        if text.count % 2 == 0 {
+            presenter?.oddEven(result: true)
+        } else {
+            presenter?.oddEven(result: false)
+        }
+    
     }
 }

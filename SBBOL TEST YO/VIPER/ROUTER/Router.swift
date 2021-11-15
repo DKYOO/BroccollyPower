@@ -17,8 +17,8 @@ class Router: RouterProtocol {
         self.viewController = viewController
     }
     
-    func routeToKart(model: Model) {
+//    func routeToKart(model: Model) {
 //        let kartView = AssembeKart.createModule()
 //        view?.present(kartView)
-    }
+//    }
 }

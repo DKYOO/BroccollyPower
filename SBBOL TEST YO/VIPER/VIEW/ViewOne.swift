@@ -11,7 +11,7 @@ import Foundation
 class ViewOne: UIViewController {
     
     // MARK: - Properties
-    var presenter: PresenterProtocol?
+    var presenter: PresenterInput?
     
     // MARK: - UI elements
     
@@ -29,7 +29,7 @@ class ViewOne: UIViewController {
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "even")
-        image.isHidden = true
+//        image.isHidden = true
         return image
     }()
     
@@ -38,7 +38,7 @@ class ViewOne: UIViewController {
         image.contentMode = .scaleAspectFit
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "odd")
-        image.isHidden = true
+//        image.isHidden = true
         return image
     }()
     
@@ -72,7 +72,7 @@ class ViewOne: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        presenter?.configureView()
+//        presenter?.configureView()
         
         setupView()
         addUIElements()
@@ -85,13 +85,9 @@ class ViewOne: UIViewController {
     @objc func pushing() {
         presenter?.userDidEndTexting(text: textOne.text)
     }
-}
-
-extension ViewOne: ViewProtocol {
+    
     func setupView() {
         view.backgroundColor = .lightGray
-//        view.layer.cornerRadius = 29.3
-//        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]  For Views with corners, not full screen
     }
     
     func addUIElements() {
@@ -104,19 +100,6 @@ extension ViewOne: ViewProtocol {
         
     }
     
-    /* Криповая хрень
-    
-    func changeColorVC() {
-        
-        if textOne.count % 2 == 0 {
-            view.backgroundColor = .green
-        }
-        else {
-            view.backgroundColor = .red
-        }
-    }
-     
-    */
     
     //MARK: - Constraints
     
@@ -154,6 +137,18 @@ extension ViewOne: ViewProtocol {
         
     }
 }
+
+extension ViewOne: ViewProtocol {
+    func setColor(color: UIColor) {
+        view.backgroundColor = color
+    }
+    func showImage(image: Bool) {
+        imageOne.isHidden = false
+        imageTwo.isHidden = true
+    }
+}
+
+
  //MARK: - KeyboardTricks Motherfuckers 😎
 
 extension UIViewController {

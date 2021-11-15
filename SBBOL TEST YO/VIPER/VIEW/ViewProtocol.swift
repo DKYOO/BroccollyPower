@@ -9,5 +9,6 @@ import Foundation
 import UIKit
 
 protocol ViewProtocol: AnyObject {
-    
+    func setColor(color: UIColor)
+    func showImage(image: Bool)
 }

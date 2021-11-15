@@ -12,7 +12,7 @@ struct Model {
     
 }
 
-class Presenter: PresenterProtocol {
+class Presenter: PresenterInput {
     
     // MARK: - Properties
     weak var view: ViewProtocol?
@@ -27,12 +27,31 @@ class Presenter: PresenterProtocol {
     // MARK: - Methods
     func userDidEndTexting(text: String?) {
         interactor?.checkTextField(text: text)
+
     }
     
+    
+    
     func configureView() {
+//        view.backgroundColor = .systemRed
     }
     
     func buttonDidTapped(i: Int) {
 //        router?.routeToKart(model: models[i])
+    }
+    
+
+}
+
+
+extension Presenter: PresenterOutput {
+    func oddEven(result: Bool) {
+        if result {
+            view?.setColor(color: .systemGreen)
+            view?.showImage(image: result)
+        } else {
+            view?.setColor(color: .systemRed)
+            view?.showImage(image: result)
+        }
     }
 }

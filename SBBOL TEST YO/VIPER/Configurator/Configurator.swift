@@ -20,16 +20,16 @@ class Configurator: ConfiguratorProtocol {
     }
 }
 
-enum AssemleMain {
-    func createModule() -> UIViewController {
-        let viewController = ViewOne()
-        let presenter = Presenter(view: viewController)
-        let interactor = Interactor(presenter: presenter)
-        let router = Router(viewController: viewController)
-        
-        viewController.presenter = presenter
-        presenter.interactor = interactor
-        presenter.router = router
-        return viewController
-    }
-}
+//enum AssemleMain {
+//    func createModule() -> UIViewController {
+//        let viewController = ViewOne()
+//        let presenter = Presenter(view: viewController)
+//        let interactor = Interactor(presenter: presenter)
+//        let router = Router(viewController: viewController)
+//
+//        viewController.presenter = presenter
+//        presenter.interactor = interactor
+//        presenter.router = router
+//        return viewController
+//    }
+//}

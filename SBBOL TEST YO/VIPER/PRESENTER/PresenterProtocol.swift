@@ -6,12 +6,26 @@
 //
 
 import Foundation
+import UIKit
 
 
-protocol PresenterProtocol: AnyObject {
+//protocol PresenterProtocol: AnyObject {
+//
+//    var router: RouterProtocol? { get set }
+//
+//    func configureView()
+//    func userDidEndTexting(text: String?)
+//    func setColor(color: UIColor)
+//}
+
+protocol PresenterInput: AnyObject {
     
-    var router: RouterProtocol? { get set }
-    
-    func configureView()
     func userDidEndTexting(text: String?)
+    
+}
+
+protocol PresenterOutput: AnyObject {
+    
+    func oddEven(result: Bool)
+    
 }
